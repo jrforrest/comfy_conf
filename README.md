@@ -26,6 +26,13 @@ Provides a basic specification and validation layer for YAML configs.
     STDERR.puts(e.message)
     exit 1
   end
+
+  puts "Name:       " + $config.name
+  puts "Age:        " + $config.age || 'N/A'
+
+  if $config.nested_options
+    puts "Nested Opt: " + $config.nested_options.nested_option
+  end
 ```
 
 ### Status
