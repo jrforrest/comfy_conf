@@ -11,4 +11,6 @@ Gem::Specification.new do |s|
   s.files = Dir[File.join(__dir__, 'lib', '**/*.rb')]
   s.homepage = 'http://github.com/jrforrest/comfy_conf'
   s.license = 'MIT'
+
+  s.add_development_dependency 'rspec', '~> 3.0'
 end
