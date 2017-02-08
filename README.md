@@ -13,7 +13,10 @@ Provides a basic specification and validation layer for YAML configs.
 
   conf = ComfyConf::Parser.new('./config.yml') do
     prop :name, type: String, required: true
-    prop :age, type: Numeric, required: false
+    prop :age, type: Numeric # required defaults to false
+
+    # Defaults may be set for props
+    prop :favorite_pizza, type: String, default: 'cheeze'
 
     config :nested_options, required: false do
       prop :nested_option, required: true, type: String

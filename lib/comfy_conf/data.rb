@@ -33,7 +33,7 @@ module ComfyConf
 
     def define_accessors
       definition.props.each do |prop|
-        define_singleton_method(prop.name) { data[prop.name] }
+        define_singleton_method(prop.name) { data[prop.name] or prop.default }
       end
 
       child_configs.each do |config|

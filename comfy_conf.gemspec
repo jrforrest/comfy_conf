@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'comfy_conf'
-  s.version = '0.4.0'
+  s.version = '0.4.1'
   s.date = '2017-01-30'
   s.summary = 'A YAML configuration parser'
   s.description = 'ComfyConf provides a minimal DSL for parsing '\

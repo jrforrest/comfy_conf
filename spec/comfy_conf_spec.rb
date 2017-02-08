@@ -7,6 +7,7 @@ describe ComfyConf do
     ComfyConf::Parser.new(file) do
       prop :name, required: true, type: String
       prop :age, required: false, type: Numeric
+      prop :favorite_pizza, type: String, default: 'cheeze'
 
       config :opts, required: true do
         prop :woah, required: true, type: String
@@ -30,6 +31,18 @@ describe ComfyConf do
     expect(data.name).to eql("Henry")
     expect(data.opts.woah).to eql("Hi!")
     expect(data.opts.nested_opts.so_nested).to eql("Like a russian doll.")
+  end
+
+  it 'provides default values when configured' do
+    expect(data.favorite_pizza).to eql('cheeze')
+  end
+
+  context 'When a defaulted value is overriden' do
+    let(:file) { fixture('overriden_default.yml') }
+
+    it 'provides the configured value instead of the default' do
+      expect(data.favorite_pizza).to eql('gate')
+    end
   end
 
   context 'When missing a required prop' do

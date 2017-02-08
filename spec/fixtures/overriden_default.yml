@@ -1,0 +1,7 @@
+---
+name: Henry
+favorite_pizza: 'gate'
+opts:
+  woah: Hi!
+  nested_opts:
+    so_nested: Like a russian doll.

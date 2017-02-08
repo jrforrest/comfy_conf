@@ -2,7 +2,7 @@ require 'comfy_conf/checker'
 
 module ComfyConf
   class Definition
-    Prop = Struct.new(:name, :type, :required)
+    Prop = Struct.new(:name, :type, :required, :default)
 
     def initialize(name, required: false, &block)
       @name = name.to_s
@@ -13,8 +13,8 @@ module ComfyConf
     end
     attr_reader :props, :configs, :name, :required
 
-    def prop(name, type:, required: false)
-      props.push Prop.new(name.to_s, type, required)
+    def prop(name, type:, required: false, default: nil)
+      props.push Prop.new(name.to_s, type, required, default)
     end
 
     def config(name, required: false, &block)
