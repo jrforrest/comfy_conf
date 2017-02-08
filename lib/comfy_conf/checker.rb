@@ -3,7 +3,7 @@ module ComfyConf
     def initialize(definition, given_prefix, data)
       @definition, @given_prefix, @data = definition, given_prefix, data
     end
-    attr_reader :definition,  :data
+    attr_reader :definition, :data
 
     def check
       definition.props.each {|p| check_prop(p) }

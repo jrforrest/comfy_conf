@@ -16,6 +16,10 @@ describe ComfyConf do
           prop :so_nested, required: true, type: String
         end
       end
+
+      config :defaulted_opts do
+        prop :defaulted_nested, type: String, default: 'heyo'
+      end
     end
   end
 
@@ -35,6 +39,10 @@ describe ComfyConf do
 
   it 'provides default values when configured' do
     expect(data.favorite_pizza).to eql('cheeze')
+  end
+
+  it 'provides default values for nested options' do
+    expect(data.defaulted_opts.defaulted_nested).to eql('heyo')
   end
 
   context 'When a defaulted value is overriden' do

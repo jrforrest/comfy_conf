@@ -1,7 +1,7 @@
 module ComfyConf
   class Data
     def initialize(prefix, definition, data)
-      @prefix, @definition, @data = prefix, definition, data
+      @prefix, @definition, @data = prefix, definition, data || Hash.new
       load
     end
     attr_reader :data, :definition, :prefix
